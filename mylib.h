@@ -9,6 +9,9 @@
 #include <algorithm>
 #include <regex>
 #include <set>
+#include <fstream>
+#include <sstream>
+#include <cctype>
 
 using namespace std;
 #endif // MYLIB_H_INCLUDED

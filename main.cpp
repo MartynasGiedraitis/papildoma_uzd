@@ -1,4 +1,5 @@
 #include "mylib.h"
+#include "funkcijos.h"
 
 int main() {
 
@@ -7,11 +8,12 @@ int main() {
 
 
     map<string, int>zodziuSK;
-    map<string, set<int>>zodziuEil;
+    map<string, set<int> >zodziuEil;
     vector<string> urls;
 
     nuskaitymas(ivestis, zodziuSK, zodziuEil);
-    isvestis(isvestis, zodziuSK, zodziuEil);
+    
+    isvedimas(isvestis, zodziuSK, zodziuEil);
 
 
 
