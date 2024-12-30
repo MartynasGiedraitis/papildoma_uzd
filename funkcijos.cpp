@@ -3,8 +3,8 @@
 string valymas(const string& zodis) {
     string teisingasZodis;
     for (char c : zodis) {
-        if (isalpha(c)) {
-            teisingasZodis += tolower(c);
+        if (isalpha(static_cast<unsigned char>(c))) {
+            teisingasZodis +=tolower(static_cast<unsigned char>(c));
         }
     }
     return teisingasZodis;
@@ -23,7 +23,7 @@ void nuskaitymas(const string& failas, map<string, int>& zodziuSK, map<string, s
         string zodis;
         while (iss >> zodis) {
             string teisingasZodis = valymas(zodis);
-            if (teisingasZodis.empty()) {
+            if (!teisingasZodis.empty()) {
                 zodziuSK[teisingasZodis]++;
                 zodziuEil[teisingasZodis].insert(eilNr);
 
@@ -33,14 +33,14 @@ void nuskaitymas(const string& failas, map<string, int>& zodziuSK, map<string, s
     }
     in.close();
 }
-void isvedimas(const string& failas, const map<string, int>& zodziai, const map<string, set<int> >& zodziuEil) {
+void isvedimas(const string& failas, const map<string, int>& zodziuSK, const map<string, set<int> >& zodziuEil) {
     ofstream out(failas);
     if (!out.is_open()) {
         cerr << "Nepavyko atidaryti failo: " << failas << endl;
         return;
     }
 
-    for (const auto& [zodis, kiekis] : zodziai) {
+    for (const auto& [zodis, kiekis] : zodziuSK) {
         if (kiekis > 1) {
             out << zodis << " " << kiekis << " ";
             for (int eilNr : zodziuEil.at(zodis)) {
