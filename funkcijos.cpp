@@ -45,7 +45,7 @@ void isvedimas(const string& failas, const map<string, int>& zodziuSK, const map
         if (kiekis > 1) {
             out <<left<<setw(15)<< zodis <<left<<setw(10) << kiekis << " ";
             for (int eilNr : zodziuEil.at(zodis)) {
-                out <<left<<setw(10)<< eilNr ;
+                out <<left<<setw(3)<< eilNr ;
             }
             out << endl;
         }
